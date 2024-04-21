@@ -1,0 +1,21 @@
+{
+    "name": "hilsager/mmf-lib",
+    "description": "framework library",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Hilsager\\MmfLib\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "HiLsAger",
+            "email": "47248609+HiLsAger@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "jenssegers/blade": "^1.4",
+        "illuminate/database": "^8.83",
+        "phpmailer/phpmailer": "^6.8"
+    }
+}
