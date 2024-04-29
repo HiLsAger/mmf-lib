@@ -1,8 +1,8 @@
 <?php
 
-namespace HiLsAger\MMF\Controllers;
+namespace Hilsager\MmfLib\Controllers;
 
-use HiLsAger\MMF\classes\Controller;
+use Hilsager\MmfLib\Classes\Controller;
 
 class Site extends Controller
 {

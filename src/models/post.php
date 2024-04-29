@@ -1,6 +1,6 @@
 <?php
 
-namespace HiLsAger\MMF\models;
+namespace Hilsager\MmfLib\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

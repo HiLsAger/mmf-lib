@@ -1,6 +1,8 @@
 <?php
 
-namespace HiLsAger\MMF\classes;
+namespace Hilsager\MmfLib\Classes;
+
+use Exception;
 
 class DateBase
 {

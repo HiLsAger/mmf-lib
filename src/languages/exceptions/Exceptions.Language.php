@@ -1,9 +1,9 @@
 <?php
 
-namespace HiLsAger\MMF\languages\exceptions;
+namespace Hilsager\MmfLib\Languages\Exceptions;
 
-use HiLsAger\MMF\classes\Application;
-use HiLsAger\MMF\classes\interfaces\InterfacesLanguage;
+use Hilsager\MmfLib\Classes\Application;
+use Hilsager\MmfLib\Classes\Interfaces\InterfacesLanguage;
 
 class ExceptionLanguage implements InterfacesLanguage
 {
@@ -21,10 +21,10 @@ class ExceptionLanguage implements InterfacesLanguage
         array|string|null $pattern = null,
         array|string|null $values = null
     ): string {
-
+        exit;
         $local = Application::getConfig('local')[0];
 
-        $childClass = "languages\\exceptions\\Exceptions$local";
+        $childClass = "Hilsager\\MmfLib\\Languages\\Exceptions$local";
         return $childClass::$$property;
     }
 }

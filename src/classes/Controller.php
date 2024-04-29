@@ -1,6 +1,6 @@
 <?php
 
-namespace HiLsAger\MMF\classes;
+namespace Hilsager\MmfLib\Classes;
 
 use Jenssegers\Blade\Blade;
 
@@ -22,7 +22,7 @@ class Controller
 
     protected function render(string $template, array $data = [])
     {
-        $cacheDir = BASE_PATH . "/.cache";
+        $cacheDir = BASE_PATH_WWW . "/.cache";
         if (!file_exists($cacheDir)) {
             mkdir($cacheDir, 0755, true);
         }

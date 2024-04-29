@@ -1,9 +1,9 @@
 <?php
 
-namespace HiLsAger\MMF\Controllers;
+namespace Hilsager\MmfLib\Controllers;
 
-use HiLsAger\MMF\classes\Controller;
-use HiLsAger\MMF\models\Post;
+use Hilsager\MmfLib\Classes\Controller;
+use Hilsager\MmfLib\Models\Post;
 
 class Api extends Controller
 {

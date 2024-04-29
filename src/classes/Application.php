@@ -1,11 +1,11 @@
 <?php
 
-namespace HiLsAger\MMF\classes;
+namespace Hilsager\MmfLib\Classes;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Exception;
-use HiLsAger\MMF\languages\exceptions\ExceptionLanguage;
+use Hilsager\MmfLib\Languages\Exceptions\ExceptionLanguage;
 
 class Application
 {
@@ -19,7 +19,7 @@ class Application
      */
     static public function getConfig(string $property = null): array
     {
-        $config = require BASE_PATH . '/config.php';
+        $config = require BASE_PATH_WWW . '/configs/application.config.php';
 
         if ($property && isset($config[$property]))
             return $config[$property];
@@ -32,10 +32,6 @@ class Application
      */
     public function begin()
     {
-        $this->includeClasses();
-        $this->includeControllers();
-        $this->includeLocals();
-        $this->includeModels();
         DBConnect::connect(self::getConfig('db'));
         $this->startController();
     }
@@ -59,62 +55,6 @@ class Application
     }
 
     /**
-     * Подключение файлов контроллеров в приложение
-     */
-    private function includeControllers()
-    {
-        $files = glob(BASE_PATH_CONTROLLERS . '/*.php');
-
-        foreach ($files as $file) {
-            require_once $file;
-        }
-    }
-
-    /**
-     * Подключение системных файлов
-     */
-    private function includeModels()
-    {
-        $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(BASE_PATH_MODELS));
-
-        foreach ($iterator as $file) {
-            if (
-                $file->isFile() &&
-                $file->getExtension() === 'php'
-            ) {
-                require_once $file;
-            }
-        }
-    }
-
-    /**
-     * Подключение файлов локализации в приложение
-     */
-    public function includeLocals()
-    {
-        $locals = self::getConfig('local');
-
-        if ($locals) {
-            foreach ($locals as $local) {
-                $patternLocal = "/(.+)\.$local\.php$/i";
-                $patternLanguage = "/(.+)\.Language\.php$/i";
-                $iterator = new RecursiveIteratorIterator(
-                    new RecursiveDirectoryIterator(BASE_PATH_LANGUAGES)
-                );
-
-                foreach ($iterator as $file) {
-                    if (
-                        $file->isFile() &&
-                        (preg_match($patternLocal, $file->getFilename()) || preg_match($patternLanguage, $file->getFilename()))
-                    ) {
-                        require_once $file->getPathname();
-                    }
-                }
-            }
-        }
-    }
-
-    /**
      * Поиск и запуск контроллера
      */
     private function startController()
@@ -130,8 +70,8 @@ class Application
         if (count($pages) >= 2) {
             $words = explode('-', $pages[0]);
             $controllerName = implode('', array_map('ucfirst', $words));
-            if (file_exists("controllers/{$controllerName}.php")) {
-                $className = 'controllers\\' . $controllerName;
+            if (file_exists("Hilsager\\MmfLib\\Controllers\\{$controllerName}.php")) {
+                $className = 'Hilsager\\MmfLib\\Controllers\\' . $controllerName;
 
                 if (class_exists($className)) {
                     $class = new $className;
@@ -150,6 +90,7 @@ class Application
             $home = self::getConfig('home');
 
             if (class_exists($home['controller'])) {
+                
                 $class = new $home['controller'];
 
                 if (method_exists($class, $home['action'])) {

@@ -1,8 +1,8 @@
 <?php
 
-namespace HiLsAger\MMF\classes;
+namespace Hilsager\MmfLib\Classes;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Capsule\Manager;
 
 class DBConnect
 {
@@ -11,7 +11,7 @@ class DBConnect
      */
     public static function connect(array $config): void
     {
-        $capsule = new Capsule();
+        $capsule = new Manager();
 
         $capsule->addConnection($config);
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace HiLsAger\MMF\classes;
+namespace Hilsager\MmfLib\Classes;
 
 class ActiveRecord
 {

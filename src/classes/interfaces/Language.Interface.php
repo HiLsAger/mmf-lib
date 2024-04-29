@@ -1,6 +1,6 @@
 <?php
 
-namespace HiLsAger\MMF\classes\interfaces;
+namespace Hilsager\MmfLib\Classes\Interfaces;
 
 interface InterfacesLanguage
 {

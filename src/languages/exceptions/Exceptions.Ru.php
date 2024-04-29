@@ -1,8 +1,6 @@
 <?php
 
-namespace HiLsAger\MMF\languages\exceptions;
-
-use languages\exceptions\ExceptionLanguage;
+namespace Hilsager\MmfLib\Languages\Exceptions;
 
 /**
  * Use

@@ -1,8 +1,8 @@
 <?php
 
-namespace HiLsAger\MMF\classes;
+namespace Hilsager\MmfLib\classes;
 
-use class\interfaces\InterfacesLanguage;
+use Hilsager\MmfLib\Classes\Interfaces\InterfacesLanguage;
 
 class Language implements InterfacesLanguage
 {
